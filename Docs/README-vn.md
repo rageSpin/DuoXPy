@@ -53,7 +53,7 @@
 # Tính năng
 
 - Farm XP ⚡️
-- Giữ streak của bạn mỗi ngày 🔥
+- Giữ streak của bạn mỗi ngày với GitHub Actions 🔥
 
 # Cách sử dụng
 
