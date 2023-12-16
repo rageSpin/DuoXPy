@@ -1,0 +1,20 @@
+name: Manual trigger
+on:
+  workflow_dispatch:
+    inputs:
+      lessons:
+        default: 1
+        description: 'Number of lessons to be done'
+        required: false
+        type: number
+   
+jobs:
+  Manual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3    
+      - name: Run DuoXPy
+        run: python main.py
+        env:
+          JWT_TOKEN: ${{ secrets.JWT_TOKEN }}
+          LESSONS: ${{ inputs.lessons }}
