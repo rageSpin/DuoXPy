@@ -27,14 +27,16 @@
  <p align="center">
   <a href="#tính-năng">Tính năng</a>
   •
-  <a href="#config">Config</a>     
-  •
   <a href="#cách-sử-dụng">Cách sử dụng</a>
+  •
+  <a href="#config">Config</a>     
   •
   <a href="#xem-trước">Xem trước</a>
   •
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
+
+ ### ⚠️ Repo này còn đang trong giai đoạn phát triển, mong các bạn có thể report những lỗi khi sử dụng thứ này càng sớm càng tốt ⚠️
 
 ### Thuộc chuỗi dự án Sandy
 
@@ -132,4 +134,4 @@ on:
 > - Bạn có thể bị **ban** từ Duolingo nếu quá lạm dụng script, nên hãy sử dụng cẩn thận!
 
 ### Đặt biệt cảm ơn 💖
-- [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) cho mã nguồn mở ban đầu
+- [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) cho mã nguồn mở ban đầu và ý tưởng
