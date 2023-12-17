@@ -111,7 +111,7 @@ lessons = config.get('User', 'LESSONS')
 headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + token,
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1.2 Safari/605.1.1',
 }
 
 jwt_payload = token.split('.')[1]
