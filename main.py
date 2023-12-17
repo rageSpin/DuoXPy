@@ -37,16 +37,16 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
     user_response = requests.get(user_url, timeout=10000)
     original_response = requests.get(original_url, timeout=10000)
     if user_response.status_code == 200 and original_response.status_code == 200:
-       user_commit = user_response.json()['sha']
-       original_commit = original_response.json()['sha']
-       if user_commit == original_commit:
-         print(f"{colors.OKGREEN}Your repo is up-to-date with the original repo{colors.ENDC}")
-       else:
-         print(f"{colors.WARNING}Your repo is not up-to-date with the original repo{colors.ENDC}")
-         print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL}to get new updates and bug fixes{colors.ENDC}")
+        user_commit = user_response.json()['sha']
+        original_commit = original_response.json()['sha']
+        if user_commit == original_commit:
+            print(f"{colors.OKGREEN}Your repo is up-to-date with the original repo{colors.ENDC}")
+        else:
+            print(f"{colors.WARNING}Your repo is not up-to-date with the original repo{colors.ENDC}")
+            print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL}to get new updates and bug fixes{colors.ENDC}")
     else:
-         print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
-         exit(-1)
+        print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
+        exit(-1)
 else:
     print(f"{colors.FAIL}Run with GitHub Actions: No{colors.ENDC}")
 print(f"{colors.WHITE}Codename: Sandy{colors.ENDC}")
@@ -90,7 +90,6 @@ def check_config_integrity(cfg: ConfigParser) -> None:
 check_config_integrity(config)
 config.read(config_path)
 
-
 def get_login(cfg: ConfigParser) -> dict[str, str]:
     user: dict[str, str] = {}
     try:
@@ -121,11 +120,20 @@ jwt_data = json.loads(decoded_payload)
 sub = jwt_data['sub']
 
 response = requests.get(f'https://www.duolingo.com/2017-06-30/users/{sub}?fields=fromLanguage,learningLanguage,xpGains', headers=headers)
-data = response.json()
-fromLanguage = data['fromLanguage']
-learningLanguage = data['learningLanguage']
-xpGains = data['xpGains']
 
+if response.status_code == 200:
+    try:
+        data = response.json()
+        fromLanguage = data['fromLanguage']
+        learningLanguage = data['learningLanguage']
+        xpGains = data['xpGains']
+    except json.decoder.JSONDecodeError as e:
+        print(f"{colors.FAIL}Error decoding JSON: {e}{colors.ENDC}")
+        exit(-1)
+else:
+    print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
+    exit(-1)
+    
 for i in range(int(lessons)):
     session_data = {
         'challengeTypes': [
