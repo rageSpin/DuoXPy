@@ -203,4 +203,4 @@ for i in range(int(lessons)):
         continue
 
     response_data = response.json()
-    print(f"{colors.OKGREEN}[i] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
+    print(f"{colors.OKGREEN}[{i+1}] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
