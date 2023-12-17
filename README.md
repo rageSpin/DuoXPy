@@ -36,7 +36,8 @@
   <a href="#disclaimer">Disclaimer</a>
 </p>
 
- ### Project Sandy series
+### ⚠️This repo still on early stages, feel free if you can report any bugs when using this thing ⚠️
+### Project Sandy series
 
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )
 - [DuoXPy](https://github.com/gorouflex/DuoXPy/) ( ⚡️ XP farm and Streak keeper for Duolingo 🔥 )
