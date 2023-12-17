@@ -29,6 +29,8 @@
   •
   <a href="#usage">Usage</a>     
   •
+  <a href="#config">Config</a>     
+  •
   <a href="#preview">Preview</a>
   •
   <a href="#disclaimer">Disclaimer</a>
@@ -72,7 +74,7 @@ document.cookie
   8. Use `JWT_TOKEN` and paste your JWT Token from Steps 3
   9. Go to your forked repository 🍴 and go to the Actions tab and press `I understand my workflows, go ahead and enable them`
 
-### If you want to farm XP, go to the `Daily lesson` workflows ( located in the Actions tab of the repo ). Then, enter the lesson you need to farm ( 1 lesson = 20xp ). Usually, if you enter a lot of lessons or if Duolingo cannot handle the request, you will receive an error code or log, and the lesson will be skipped. So, think wisely before entering the lesson!
+### If you want to farm XP, go to the `Daily lessons` workflows ( located in the Actions tab of the repo ). Then, enter the lesson you need to farm ( 1 lesson = 20xp ). Usually, if you enter a lot of lessons or if Duolingo cannot handle the request, you will receive an error code or log, and the lesson will be skipped. So, think wisely before entering the lesson!
 
 <p align="left">
   <img src="Img/get_token.png">
@@ -106,6 +108,11 @@ on:
 > [!NOTE]
 > GitHub Actions schedules can sometimes be delayed by up to 15 minutes due to high demand, so don’t worry! ⏱️
 
+# Config
+
+- Usually, you can find your config folder in the same place as the `main.py` file. In some specific cases, you might need to locate your config through the information window in the `main.py` file
+- You can change your information and lessons in the config file
+
 # Preview
 
 <p align="left">
@@ -124,4 +131,4 @@ on:
 > - You may get **banned** from Duolingo if you overuse it, so use it wisely
 
 ### Special thanks to 💖
-- [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) for the source code
+- [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) for the source code and idea

@@ -1,10 +1,10 @@
-name: Manual trigger
+name: Manual lessons trigger
 on:
   workflow_dispatch:
     inputs:
       lessons:
         default: 1
-        description: 'Number of lessons to be done'
+        description: 'Number of lessons'
         required: false
         type: number
    

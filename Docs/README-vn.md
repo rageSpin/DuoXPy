@@ -25,8 +25,9 @@
   •
   <a href="Docs/README-vn.md">Tiếng Việt 🇻🇳</a>
  <p align="center">
-  •
   <a href="#tính-năng">Tính năng</a>
+  •
+  <a href="#config">Config</a>     
   •
   <a href="#cách-sử-dụng">Cách sử dụng</a>
   •
@@ -42,10 +43,10 @@
 
 > [!IMPORTANT]
 > **Vui lòng đọc hết tất cả** tài liệu và văn bản hướng dẫn trong repo này trước khi làm!
+>
 > Đừng quên cho repo của mình 1 star nhé ⭐ 
 > - Luôn cập nhật repo của các bạn theo repo gốc này để nhận được những bản cập nhật và vá lỗi mới nhất, và tôi GorouFlex sẽ không hỗ trợ nếu phát hiện repo của bạn đã lỗi thời và không được cập nhật theo repo chính.
 > - **Vui lòng không** nhập thông tin tài khoản của bạn ( như token ) vào 2 file workflow ( `daily.yml` và `manual.yml`)  vì nó sẽ không hoạt động mà sẽ gây ra lỗi và còn có thể bị lộ thông tin cho người khác xem
-> - (*): Do not fork this repo if one of these or all of these ( not CodeQL and CL ) GitHub Actions status badge show failing, and wait until one of these or two of these show passing then you can fork again
 > - (*) Không được fork repo nếu bạn thấy cả 1 trong 2 ( không bao gồm cả CodeQL và CL ) trạng thái của GitHub Actions đều chuyển sang đỏ, hãy chờ cho đến khi 1 trong 2 hoặc cả 2 chuyển sang màu xanh thì có thể fork
 > - `Daily claim` sẽ luôn luôn tự động chạy vào lúc 14:00 giờ ( UTC + 0 ) tức là 9:00 tối theo giờ UTC +7, nếu muốn chỉnh thì tham khảo tại [đây](https://github.com/gorouflex/DuoXPy/blob/main/Docs/README-vn.md#làm-thế-nào-để-chỉnh-lại-thời-gian-tự-động-chạy-mỗi-ngày)
 > <img src="https://i.imgur.com/htGeFlY.jpg">
@@ -79,6 +80,11 @@ document.cookie
   <img src="/Img/get_token.png">
   <img src="/Img/GitSettings.png">
 </p>
+
+# Config
+
+- Thông thường bạn có tìm thấy thư mục config ở cùng nơi mà file `main.py` ở. Nhưng 1 số trường hợp đặc biệc thì bạn cần phải tự tìm file config thông quan cửa sổ thông tin khi chạy của file `main.py`
+- Bạn có đổi thông tin token và số lượng bài học ở file config
 
 ## Làm thế nào để chỉnh lại thời gian tự động chạy mỗi ngày?
 
