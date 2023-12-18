@@ -212,4 +212,4 @@ for i in range(int(lessons)):
 
     response_data = response.json()
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
-    time.sleep(10)
+    time.sleep(3)
