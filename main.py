@@ -99,117 +99,109 @@ def get_login(cfg: ConfigParser) -> dict[str, str]:
         create_config(cfg)
     return user
     
-def decode_base64(data):
-    missing_padding = len(data) % 4
-    if missing_padding:
-        data += '='* (4 - missing_padding)
-    return base64.b64decode(data).decode('utf-8')
-
 token = get_login(config)['TOKEN']
 lessons = config.get('User', 'LESSONS')
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + token,
+    'Authorization': f"Bearer {os.getenv('JWT_TOKEN')}",
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
 }
 
-jwt_payload = token.split('.')[1]
-decoded_payload = decode_base64(jwt_payload)
-jwt_data = json.loads(decoded_payload)
-sub = jwt_data['sub']
+jwt_token = token.split('.')[1]
+padding = '=' * (4 - len(jwt_token) % 4)
+sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
-response = requests.get(f'https://www.duolingo.com/2017-06-30/users/{sub}?fields=fromLanguage,learningLanguage,xpGains', headers=headers)
+response = requests.get(
+    f"https://www.duolingo.com/2017-06-30/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
+    headers=headers,
+)
+data = response.json()
+fromLanguage = data['fromLanguage']
+learningLanguage = data['learningLanguage']
+xpGains = data['xpGains']
 
-if response.status_code == 200:
-    try:
-        data = response.json()
-        fromLanguage = data['fromLanguage']
-        learningLanguage = data['learningLanguage']
-        xpGains = data['xpGains']
-    except json.decoder.JSONDecodeError as e:
-        print(f"{colors.FAIL}Error decoding JSON: {e}{colors.ENDC}")
-        exit(-1)
-else:
-    print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
-    exit(-1)
-    
+skillId = None
+for xpGain in xpGains:
+    if 'skillId' in xpGain:
+        skillId = xpGain['skillId']
+        break
+
+if skillId is None:
+    print("No skillId found in xpGains")
+    exit(1)
+
 for i in range(int(lessons)):
-    session_data = {
-        'challengeTypes': [
-            'assist',
-            'characterIntro',
-            'characterMatch',
-            'characterPuzzle',
-            'characterSelect',
-            'characterTrace',
-            'completeReverseTranslation',
-            'definition',
-            'dialogue',
-            'form',
-            'freeResponse',
-            'gapFill',
-            'judge',
-            'listen',
-            'listenComplete',
-            'listenMatch',
-            'match',
-            'name',
-            'listenComprehension',
-            'listenIsolation',
-            'listenTap',
-            'partialListen',
-            'partialReverseTranslate',
-            'readComprehension',
-            'select',
-            'selectPronunciation',
-            'selectTranscription',
-            'syllableTap',
-            'syllableListenTap',
-            'speak',
-            'tapCloze',
-            'tapClozeTable',
-            'tapComplete',
-            'tapCompleteTable',
-            'tapDescribe',
-            'translate',
-            'typeCloze',
-            'typeClozeTable',
-            'typeCompleteTable',
-        ],
-        'fromLanguage': fromLanguage,
-        'isFinalLevel': False,
-        'isV2': True,
-        'juicy': True,
-        'learningLanguage': learningLanguage,
-        'skillId': next((xpGain['skillId'] for xpGain in xpGains if 'skillId' in xpGain), None),
-        'smartTipsVersion': 2,
-        'type': 'SPEAKING_PRACTICE'
-    }
-
-    session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', data=json.dumps(session_data), headers=headers)
-    if session_response.status_code != 200:
-        print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
-        continue
-
+    session_response = requests.post(
+        'https://www.duolingo.com/2017-06-30/sessions',
+        headers=headers,
+        json={
+            'challengeTypes': [
+                'assist',
+                'characterIntro',
+                'characterMatch',
+                'characterPuzzle',
+                'characterSelect',
+                'characterTrace',
+                'completeReverseTranslation',
+                'definition',
+                'dialogue',
+                'form',
+                'freeResponse',
+                'gapFill',
+                'judge',
+                'listen',
+                'listenComplete',
+                'listenMatch',
+                'match',
+                'name',
+                'listenComprehension',
+                'listenIsolation',
+                'listenTap',
+                'partialListen',
+                'partialReverseTranslate',
+                'readComprehension',
+                'select',
+                'selectPronunciation',
+                'selectTranscription',
+                'syllableTap',
+                'syllableListenTap',
+                'speak',
+                'tapCloze',
+                'tapClozeTable',
+                'tapComplete',
+                'tapCompleteTable',
+                'tapDescribe',
+                'translate',
+                'typeCloze',
+                'typeClozeTable',
+                'typeCompleteTable',
+            ],
+            'fromLanguage': fromLanguage,
+            'isFinalLevel': False,
+            'isV2': True,
+            'juicy': True,
+            'learningLanguage': learningLanguage,
+            'skillId': skillId,
+            'smartTipsVersion': 2,
+            'type': 'SPEAKING_PRACTICE',
+        },
+    )
     session = session_response.json()
 
-    update_data = {
-        **session,
-        'heartsLeft': 0,
-        'startTime': (time.time() - 60),
-        'enableBonusPoints': False,
-        'endTime': time.time(),
-        'failed': False,
-        'maxInLessonStreak': 9,
-        'shouldLearnThings': True,
-    }
-
-    response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(update_data), headers=headers)
-    if response.status_code != 200:
-        print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
-        continue
-
-    response_data = response.json()
-    print(f"{colors.OKGREEN}[{i+1}] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
-    time.sleep(3)
+    end_response = requests.put(
+        f"https://www.duolingo.com/2017-06-30/sessions/{session['id']}",
+        headers=headers,
+        json={
+            **session,
+            'heartsLeft': 0,
+            'startTime': (time.time() - 60),
+            'enableBonusPoints': False,
+            'endTime': time.time(),
+            'failed': False,
+            'maxInLessonStreak': 9,
+            'shouldLearnThings': True,
+        },
+    )
+    end_data = end_response.json()
+    print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
