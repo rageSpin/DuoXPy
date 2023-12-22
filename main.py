@@ -128,7 +128,7 @@ for xpGain in xpGains:
         break
 
 if skillId is None:
-    print("No skillId found in xpGains")
+    print(f"{colors.FAIL}No skillId found in xpGains{colors.ENDC}")
     exit(1)
 
 for i in range(int(lessons)):
