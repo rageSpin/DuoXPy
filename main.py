@@ -188,7 +188,7 @@ for i in range(int(lessons)):
         },
     )
 
-    session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', data=json.dumps(session_response), headers=headers)
+    session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
     if session_response.status_code != 200:
          print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
          continue
