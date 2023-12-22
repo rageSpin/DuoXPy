@@ -208,9 +208,5 @@ for i in range(int(lessons)):
             'shouldLearnThings': True,
         },
     )
-    response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_response), headers=headers)
-    if response.status_code != 200:
-        print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
-        continue
     end_data = end_response.json()
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
