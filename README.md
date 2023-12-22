@@ -36,8 +36,7 @@
   <a href="#disclaimer">Disclaimer</a>
 </p>
 
-### ⚠️This repo still on early stages, feel free if you can report any bugs when using this thing ⚠️
-### Project Sandy series
+### Belong to the Sandy Project
 
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )
 - [DuoXPy](https://github.com/gorouflex/DuoXPy/) ( ⚡️ XP farm and Streak keeper for Duolingo 🔥 )
@@ -75,7 +74,10 @@ document.cookie
   8. Use `JWT_TOKEN` and paste your JWT Token from Steps 3
   9. Go to your forked repository 🍴 and go to the Actions tab and press `I understand my workflows, go ahead and enable them`
 
-### If you want to farm XP, go to the `Daily lessons` workflows ( located in the Actions tab of the repo ). Then, enter the lesson you need to farm ( 1 lesson = 20xp ). Usually, if you enter a lot of lessons or if Duolingo cannot handle the request, you will receive an error code or log, and the lesson will be skipped. So, think wisely before entering the lesson!
+> [!IMPORTANT]
+> If you want to farm XP, go to the [`Manual lessons trigger`](https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml) workflows ( located in the Actions tab of the repo ). Then, enter the lesson you need to farm ( 1 lesson = 20xp ). Usually, if you enter a lot of lessons ( like >1000 ) or if Duolingo cannot handle the request, you will receive an error code or log, and the lesson will be skipped. So, think wisely before entering the lesson!
+> 
+> If you got `No skillId found in xpGains` log then try to do least 1 lesson so it can run back to normal!
 
 <p align="left">
   <img src="Img/get_token.png">
