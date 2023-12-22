@@ -36,8 +36,6 @@
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
 
- ### ⚠️ Repo này còn đang trong giai đoạn phát triển, mong các bạn có thể report những lỗi khi sử dụng thứ này càng sớm càng tốt ⚠️
-
 ### Thuộc chuỗi dự án Sandy
 
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )
@@ -75,8 +73,12 @@ document.cookie
   7. Vào `Settings > Secrets and Variables > Actions`, và ấn nút `New Repository secret`
   8. Đặt tên thành `JWT_TOKEN` rồi dán Token mà bạn đã làm ở bước 3 
   9. Trở lại repo của bạn đã fork 🍴, vào Actions trên thanh công cụ repo rồi ấn `I understand my workflows, go ahead and enable them`
-
-### Nếu muốn farm xp thì hãy đến workflows tên `Daily lesson` ( ở trên tab Actions của repo ) rồi nhập số bài học cần farm ( 1 bài học = 20xp ) , và thường thường nếu nhập quá nhiều bài học hoặc là duolingo chưa phản hồi kịp thì bạn có thể nhận báo cáo lỗi của script nên hãy suy nghĩ kỹ số bài học cần farm nhé!
+     
+> [!IMPORTANT]
+> Nếu muốn farm xp thì hãy đến workflows tên [`Manual lessons trigger`](https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml) ( ở trên tab Actions của repo ) rồi nhập số bài học cần farm ( 1 bài học = 20xp ) , và thường thường nếu nhập quá nhiều bài học ( như >1000 ) hoặc là Duolingo chưa phản hồi kịp thì bạn có thể nhận báo cáo lỗi của script nên hãy suy nghĩ kỹ số bài học cần farm nhé!
+>
+> Nếu bạn nhận được lỗi `No skillId found in xpGains` thì hãy làm ít nhất là 
+1 bài học để có thể chạy lại bình thường nhé!
 
 <p align="left">
   <img src="/Img/get_token.png">
