@@ -48,7 +48,7 @@
 > - Luôn cập nhật repo của các bạn theo repo gốc này để nhận được những bản cập nhật và vá lỗi mới nhất, và tôi GorouFlex sẽ không hỗ trợ nếu phát hiện repo của bạn đã lỗi thời và không được cập nhật theo repo chính.
 > - **Vui lòng không** nhập thông tin tài khoản của bạn ( như token ) vào 2 file workflow ( `daily.yml` và `manual.yml`)  vì nó sẽ không hoạt động mà sẽ gây ra lỗi và còn có thể bị lộ thông tin cho người khác xem
 > - (*) Không được fork repo nếu bạn thấy cả 1 trong 2 ( không bao gồm cả CodeQL và CL ) trạng thái của GitHub Actions đều chuyển sang đỏ, hãy chờ cho đến khi 1 trong 2 hoặc cả 2 chuyển sang màu xanh thì có thể fork
-> - `Daily claim` sẽ luôn luôn tự động chạy vào lúc 14:00 giờ ( UTC + 0 ) tức là 9:00 tối theo giờ UTC +7, nếu muốn chỉnh thì tham khảo tại [đây](https://github.com/gorouflex/DuoXPy/blob/main/Docs/README-vn.md#làm-thế-nào-để-chỉnh-lại-thời-gian-tự-động-chạy-mỗi-ngày)
+> - `Daily lessons` sẽ luôn luôn tự động chạy vào lúc 14:00 giờ ( UTC + 0 ) tức là 9:00 tối theo giờ UTC +7, nếu muốn chỉnh thì tham khảo tại [đây](https://github.com/gorouflex/DuoXPy/blob/main/Docs/README-vn.md#làm-thế-nào-để-chỉnh-lại-thời-gian-tự-động-chạy-mỗi-ngày)
 > <img src="https://i.imgur.com/htGeFlY.jpg">
   
 # Tính năng
