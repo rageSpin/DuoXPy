@@ -90,8 +90,9 @@ def check_config_integrity(cfg: ConfigParser) -> None:
 check_config_integrity(config)
 config.read(config_path)
 
+
 try:
-    token = cfg.get('User', 'TOKEN')
+    token = config.get('User', 'TOKEN')
     lessons = config.get('User', 'LESSONS')
 except:
     create_config(cfg)
