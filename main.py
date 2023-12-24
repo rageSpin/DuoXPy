@@ -93,13 +93,12 @@ config.read(config_path)
 def check_login(cfg: ConfigParser) -> dict[str, str]:
     try:
         token = cfg.get('User', 'TOKEN')
-        user: dict[str, str] = {'TOKEN': token}
     except:
         create_config(cfg)
     
 check_login(config)
 
-token = get_login(config)['TOKEN']
+token = check_login(config)['TOKEN']
 lessons = config.get('User', 'LESSONS')
 
 headers = {
