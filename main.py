@@ -90,15 +90,15 @@ def check_config_integrity(cfg: ConfigParser) -> None:
 check_config_integrity(config)
 config.read(config_path)
 
-def get_login(cfg: ConfigParser) -> dict[str, str]:
-    user: dict[str, str] = {}
+def check_login(cfg: ConfigParser) -> dict[str, str]:
     try:
         token = cfg.get('User', 'TOKEN')
         user: dict[str, str] = {'TOKEN': token}
     except:
         create_config(cfg)
-    return user
     
+check_login(config)
+
 token = get_login(config)['TOKEN']
 lessons = config.get('User', 'LESSONS')
 
