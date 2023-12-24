@@ -90,16 +90,11 @@ def check_config_integrity(cfg: ConfigParser) -> None:
 check_config_integrity(config)
 config.read(config_path)
 
-def check_login(cfg: ConfigParser) -> dict[str, str]:
-    try:
-        token = cfg.get('User', 'TOKEN')
-    except:
-        create_config(cfg)
-    
-check_login(config)
-
-token = check_login(config)['TOKEN']
-lessons = config.get('User', 'LESSONS')
+try:
+    token = cfg.get('User', 'TOKEN')
+    lessons = config.get('User', 'LESSONS')
+except:
+    create_config(cfg)
 
 headers = {
     'Content-Type': 'application/json',
