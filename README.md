@@ -1,24 +1,24 @@
 <p align="center">
-<img src="Img/duo.svg" width="128px"/>            
+  <img src="Img/duo.svg" width="128px"/>            
 </p>
 <h1 align="center">DuoXPy - Project Sandy</h1>
 <h4 align="center">⚡️ XP farm and Streak keeper for Duolingo 🔥</h4>
 <h4 align="center">Powered by GitHub Actions 🐙 and Python 🐍</h4>
 <p align="center">
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/gorouflex/DuoXPy?style=flat">
-<img src="https://img.shields.io/github/forks/gorouflex/DuoXPy?style=flat">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/gorouflex/DuoXPy?style=flat">
+  <img src="https://img.shields.io/github/forks/gorouflex/DuoXPy?style=flat">
 <p align="center">
-<img src="https://img.shields.io/github/stars/gorouflex/DuoXPy?style=flat">
-<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/gorouflex/DuoXPy?style=flat">
-<img src="https://img.shields.io/github/contributors/gorouflex/DuoXPy?style=flat">
+  <img src="https://img.shields.io/github/stars/gorouflex/DuoXPy?style=flat">
+  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/gorouflex/DuoXPy?style=flat">
+  <img src="https://img.shields.io/github/contributors/gorouflex/DuoXPy?style=flat">
 </p>
 <p align="center">
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml/badge.svg"></a>
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml/badge.svg"></a>
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml/badge.svg"></a>
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml/badge.svg"></a>
 </p>
 <p align="center">
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml/badge.svg"></a>
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml/badge.svg"></a>
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
 </p>
 <p align="center">
   <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
@@ -35,6 +35,8 @@
   •
   <a href="#disclaimer">Disclaimer</a>
 </p>
+
+### ⚠️ This repository is still in its early stages and may not work as expected for some accounts. Please try completing at least 9 lessons and run it again after 2-3 days ⚠️
 
 ### Belong to the Sandy Project
 
@@ -60,7 +62,8 @@
 
   1. Go to [Duolingo](https://www.duolingo.com) and log in to your Duolingo account
   2. Open the browser's console by pressing `F12` button ( or `Fn+F12` on some laptops )
-  3. Click on the tab `Console` than paste this to the console
+  3. Click on the tab `Console` then paste this to the console
+
 ```
 document.cookie
   .split(';')
@@ -94,7 +97,7 @@ Daily workflow file path ( default is 14:00 UTC ± 0, and **DO NOT** enter your 
 - For example: If I want to set the daily trigger to trigger at 9:00 PM ( UTC + 7 ) , I have to set it to 2:00 PM or 14:00 ( 24-hour format ) ( UTC ± 0 ) ( 2+7=9 ):
 
 ```
-name: Daily claim
+name: Daily lessons
 on:
   schedule:
     - cron: '0 14 * * *' # <- Use UTC Time +0 , change your time here ( 14 is hour , 0 is minutes ) and use 24-hour format
@@ -102,11 +105,12 @@ on:
 - So, if I want the daily trigger to run at 5:00 AM ( UTC + 7 ), I have to set it to 10:00 PM ( UTC ± 0 ) ( use 24-hour format ):
 
 ```
-name: Daily claim
+name: Daily lessons
 on:
   schedule:
     - cron: '0 22 * * *' # <- Use UTC Time +0 , change your time here ( 14 is hour , 0 is minutes ) and use 24-hour format
 ```
+
 
 > [!NOTE]
 > GitHub Actions schedules can sometimes be delayed by up to 15 minutes due to high demand, so don’t worry! ⏱️
@@ -131,7 +135,7 @@ on:
 > - I'm **not responsible** for any consequences that may arise from using this script
 > - This script won't help with your daily or friend quests, it can only earn XP to move up the league rank
 > - This script won't do real lessons or stories, only practices, so it won't affect your learning path
-> - You may get **banned** from Duolingo if you overuse it, so use it wisely
+> - You may be **banned** from Duolingo if you overuse it, so use it wisely.
 
 ### Special thanks to 💖
 - [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) for the source code and idea

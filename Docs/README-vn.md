@@ -36,6 +36,8 @@
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
 
+### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản. Hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️
+
 ### Thuộc chuỗi dự án Sandy
 
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )

@@ -55,39 +55,39 @@ print(f"{colors.WARNING}---------------------------------------{colors.ENDC}")
 print(f"{colors.WHITE}Starting DuoXPy{colors.ENDC}")
 print(f"{colors.WHITE}Collecting information...{colors.ENDC}")
 
-def create_config(cfg: ConfigParser) -> None:
-    cfg.add_section('User')
-    cfg.set('User', 'TOKEN', "")
+def create_config() -> None:
+    config.add_section('User')
+    config.set('User', 'TOKEN', "")
     if os.getenv('GITHUB_ACTIONS') == 'true':
         token = os.getenv('JWT_TOKEN')
-        cfg.set('User', 'TOKEN', f"{token}")
+        config.set('User', 'TOKEN', f"{token}")
         lessons = os.getenv('LESSONS')
-        cfg.set('User', 'LESSONS', f"{lessons}")
+        config.set('User', 'LESSONS', f"{lessons}")
     else:
         token = getpass(f"{colors.WHITE}Token: {colors.ENDC}")
-        cfg.set('User', 'TOKEN', f"{token}")
+        config.set('User', 'TOKEN', f"{token}")
         lessons = getpass(f"{colors.WHITE}Lesson: {colors.ENDC}")
-        cfg.set('User', 'LESSONS', f"{lessons}")
+        config.set('User', 'LESSONS', f"{lessons}")
     with open(config_path, 'w', encoding='utf-8') as configfile:
         configfile.truncate(0)
         configfile.seek(0)
-        cfg.write(configfile)
+        config.write(configfile)
 
-def check_config_integrity(cfg: ConfigParser) -> None:
+def check_config_integrity() -> None:
     if not os.path.exists(config_folder):
         print(f"{colors.WARNING}Creating new config folder at:", os.path.join(os.getcwd()))
         os.mkdir(config_folder)
     
     if not os.path.isfile(config_path) or os.stat(config_path).st_size == 0:
-        create_config(cfg)
+        create_config(config)
         return
     
-    cfg.read(config_path)
+    config.read(config_path)
     
-    if not cfg.has_section('User') or not cfg.has_option('User', 'TOKEN') or not cfg.has_option('User', 'LESSONS'):
-        create_config(cfg)
+    if not config.has_section('User') or not config.has_option('User', 'TOKEN') or not config.has_option('User', 'LESSONS'):
+        create_config(config)
 
-check_config_integrity(config)
+check_config_integrity()
 config.read(config_path)
 
 
@@ -95,7 +95,7 @@ try:
     token = config.get('User', 'TOKEN')
     lessons = config.get('User', 'LESSONS')
 except:
-    create_config(cfg)
+    create_config(config)
 
 headers = {
     'Content-Type': 'application/json',
