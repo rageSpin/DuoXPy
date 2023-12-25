@@ -79,13 +79,13 @@ def check_config_integrity() -> None:
         os.mkdir(config_folder)
     
     if not os.path.isfile(config_path) or os.stat(config_path).st_size == 0:
-        create_config(config)
+        create_config()
         return
     
     config.read(config_path)
     
     if not config.has_section('User') or not config.has_option('User', 'TOKEN') or not config.has_option('User', 'LESSONS'):
-        create_config(config)
+        create_config()
 
 check_config_integrity()
 config.read(config_path)
@@ -95,7 +95,7 @@ try:
     token = config.get('User', 'TOKEN')
     lessons = config.get('User', 'LESSONS')
 except:
-    create_config(config)
+    create_config()
 
 headers = {
     'Content-Type': 'application/json',
