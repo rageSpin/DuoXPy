@@ -117,7 +117,7 @@ learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
 
 skillId = None
-for xpGain in xpGains:
+for xpGain in list(reversed(xpGains)):
     if 'skillId' in xpGain:
         skillId = xpGain['skillId']
         break
