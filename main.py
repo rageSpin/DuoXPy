@@ -199,8 +199,14 @@ for i in range(int(lessons)):
             'shouldLearnThings': True,
         },
     )
-    
-    end_data = end_response.json()
+
+    try:
+        end_data = end_response.json()
+    except json.decoder.JSONDecodeError as e:
+        print(f"{colors.FAIL}Error decoding JSON: {e}{colors.ENDC}")
+        print(f"Response content: {end_response.text}")
+        continue
+
     response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
     if response.status_code != 200:
         print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
