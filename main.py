@@ -47,11 +47,17 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
     else:
         print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
         exit(-1)
+    print(f"{colors.WARNING}Lessons: {os.getenv('LESSONS')}{colors.ENDC}")
 else:
     print(f"{colors.FAIL}Run with GitHub Actions: No{colors.ENDC}")
+    try:
+      lessons = config.get('User', 'LESSONS')
+      print(f"{colors.WARNING}Lessons: {lessons}{colors.ENDC}")
+    except:
+      print(f"{colors.WARNING}Lessons: N/A{colors.ENDC}")
 print(f"{colors.WHITE}Codename: Sandy{colors.ENDC}")
 print(f"{colors.WHITE}Config folder:", os.path.join(os.getcwd(), f"{colors.WHITE}Config{colors.ENDC}"))
-print(f"{colors.WARNING}---------------------------------------{colors.ENDC}")
+print(f"{colors.WARNING}---------------------------------{colors.ENDC}")
 print(f"{colors.WHITE}Starting DuoXPy{colors.ENDC}")
 print(f"{colors.WHITE}Collecting information...{colors.ENDC}")
 
@@ -103,7 +109,12 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
 }
 
-jwt_token = token.split('.')[1]
+try:
+  jwt_token = token.split('.')[1]
+except:
+  print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invaild token{colors.ENDC}")
+  exit(-1)
+  
 padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 

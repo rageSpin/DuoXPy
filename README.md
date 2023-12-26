@@ -139,4 +139,4 @@ on:
 
 ### Special thanks to 💖
 - [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) for the source code and idea
-- [ESSTX](https://github.com/ESSTX) for xpGains fixes [PR #1](https://github.com/gorouflex/DuoXPy/pull/1)
+- [ESSTX](https://github.com/ESSTX) for xpGains fixes [PR #1](https://github.com/gorouflex/DuoXPy/pull/1), [PR #2](https://github.com/gorouflex/DuoXPy/pull/2)
