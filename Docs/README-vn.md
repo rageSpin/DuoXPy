@@ -139,3 +139,4 @@ on:
 
 ### Đặt biệt cảm ơn 💖
 - [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) cho mã nguồn mở ban đầu và ý tưởng
+- [ESSTX](https://github.com/ESSTX) cho các sửa lỗi liên quan đến xpGains [PR #1](https://github.com/gorouflex/DuoXPy/pull/1)
