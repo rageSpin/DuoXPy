@@ -116,11 +116,8 @@ fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
 
-skillId = None
-for xpGain in list(reversed(xpGains)):
-    if 'skillId' in xpGain:
-        skillId = xpGain['skillId']
-        break
+xpGain = xpGains[-1]
+skillId = xpGain['skillId']
 
 if skillId is None:
     print(f"{colors.FAIL}No skillId found in xpGains{colors.ENDC}")
