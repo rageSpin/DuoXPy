@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/Img/duo.svg" width="128px"/>            
+<img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="128px"/>            
 </p>
 <h1 align="center">DuoXPy - Dự án Sandy</h1>
 <h4 align="center"> ⚡️ Farm XP và giữ Streak cho Duolingo🔥</h4>
@@ -23,7 +23,7 @@
 <p align="center">
   <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
   •
-  <a href="Docs/README-vn.md">Tiếng Việt 🇻🇳</a>
+  <a href="README-vn.md">Tiếng Việt 🇻🇳</a>
  <p align="center">
   <a href="#tính-năng">Tính năng</a>
   •
@@ -36,12 +36,14 @@
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
 
-### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản. Hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️
+### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️
 
 ### Thuộc chuỗi dự án Sandy
 
+- [Sandy](https://github.com/gorouflex/Sandy/) ( Official Documents and Information Repository for Project Sandy )
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )
 - [DuoXPy](https://github.com/gorouflex/DuoXPy/) ( ⚡️ XP farm and Streak keeper for Duolingo 🔥 )
+
 
 > [!IMPORTANT]
 > **Vui lòng đọc hết tất cả** tài liệu và văn bản hướng dẫn trong repo này trước khi làm!
@@ -50,7 +52,7 @@
 > - Luôn cập nhật repo của các bạn theo repo gốc này để nhận được những bản cập nhật và vá lỗi mới nhất, và tôi GorouFlex sẽ không hỗ trợ nếu phát hiện repo của bạn đã lỗi thời và không được cập nhật theo repo chính.
 > - **Vui lòng không** nhập thông tin tài khoản của bạn ( như token ) vào 2 file workflow ( `daily.yml` và `manual.yml`)  vì nó sẽ không hoạt động mà sẽ gây ra lỗi và còn có thể bị lộ thông tin cho người khác xem
 > - (*) Không được fork repo nếu bạn thấy cả 1 trong 2 ( không bao gồm cả CodeQL và CL ) trạng thái của GitHub Actions đều chuyển sang đỏ, hãy chờ cho đến khi 1 trong 2 hoặc cả 2 chuyển sang màu xanh thì có thể fork
-> - `Daily lessons` sẽ luôn luôn tự động chạy vào lúc 14:00 giờ ( UTC + 0 ) tức là 9:00 tối theo giờ UTC +7, nếu muốn chỉnh thì tham khảo tại [đây](https://github.com/gorouflex/DuoXPy/blob/main/Docs/README-vn.md#làm-thế-nào-để-chỉnh-lại-thời-gian-tự-động-chạy-mỗi-ngày)
+> - `Daily lessons` sẽ luôn luôn tự động chạy vào lúc 14:00 giờ ( UTC + 0 ) tức là 9:00 tối theo giờ UTC +7, nếu muốn chỉnh thì tham khảo tại [đây](https://github.com/gorouflex/DuoXPy/blob/main/README-vn.md#làm-thế-nào-để-chỉnh-lại-thời-gian-tự-động-chạy-mỗi-ngày)
 > <img src="https://i.imgur.com/htGeFlY.jpg">
   
 # Tính năng
@@ -83,8 +85,8 @@ document.cookie
 1 bài học để có thể chạy lại bình thường nhé!
 
 <p align="left">
-  <img src="/Img/get_token.png">
-  <img src="/Img/GitSettings.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/get_token.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/GitSettings.png">
 </p>
 
 # Config
@@ -124,7 +126,7 @@ on:
 # Xem trước
 
 <p align="left">
-  <img src="/Img/preview.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/preview.png">
 </p>
 
 # Trách nhiệm

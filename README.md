@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Img/duo.svg" width="128px"/>            
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="128px"/>            
 </p>
 <h1 align="center">DuoXPy - Project Sandy</h1>
 <h4 align="center">⚡️ XP farm and Streak keeper for Duolingo 🔥</h4>
@@ -23,7 +23,7 @@
 <p align="center">
   <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
   •
-  <a href="Docs/README-vn.md">Tiếng Việt 🇻🇳</a>
+  <a href="README-vn.md">Tiếng Việt 🇻🇳</a>
 <p align="center">
   <a href="#feature">Feature</a>
   •
@@ -36,10 +36,11 @@
   <a href="#disclaimer">Disclaimer</a>
 </p>
 
-### ⚠️ This repository is still in its early stages and may not work as expected for some accounts. Please try completing at least 9 lessons and run it again after 2-3 days ⚠️
+### ⚠️ This repository is still in its early stages and may not work as expected for some accounts, please try completing at least 9 lessons and run it again after 2-3 days ⚠️
 
-### Belong to the Sandy Project
+### Belongs to the Sandy Project
 
+- [Sandy](https://github.com/gorouflex/Sandy/) ( Official Documents and Information Repository for Project Sandy )
 - [HoneygainPot](https://github.com/gorouflex/HoneygainPot/) ( 🐝 Automatically claim your Honeygain lucky pot every day 🍯 )
 - [DuoXPy](https://github.com/gorouflex/DuoXPy/) ( ⚡️ XP farm and Streak keeper for Duolingo 🔥 )
   
@@ -83,8 +84,8 @@ document.cookie
 > If you got `No skillId found in xpGains` log then try to do least 1 lesson so it can run back to normal!
 
 <p align="left">
-  <img src="Img/get_token.png">
-  <img src="Img/GitSettings.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/get_token.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/GitSettings.png">
 </p>
 
 ## How to change the schedule that the workflows will run?
@@ -123,7 +124,7 @@ on:
 # Preview
 
 <p align="left">
-  <img src="Img/preview.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/preview.png">
 </p>
 
 # Disclaimer
