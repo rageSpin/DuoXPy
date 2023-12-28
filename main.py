@@ -131,7 +131,7 @@ xpGain = xpGains[-1]
 skillId = xpGain['skillId']
 
 if skillId is None:
-    print(f"{colors.FAIL}No skillId found in xpGains{colors.ENDC}")
+    print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
     exit(1)
 
 for i in range(int(lessons)):
@@ -188,8 +188,11 @@ for i in range(int(lessons)):
     }
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
-    if session_response.status_code != 200:
-         print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
+    if session_response.status_code = 500:
+         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
+         exit(-1)
+    elif session_response.status_code != 200:
+         print(f"{colors.FAIL}Session Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
          continue
     session = session_response.json()
 
@@ -216,7 +219,10 @@ for i in range(int(lessons)):
         continue
 
     response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
-    if response.status_code != 200:
-        print(f"{colors.FAIL}Error: {response.status_code}, {response.text}{colors.ENDC}")
-        continue
+    if response.status_code = 500:
+         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
+         exit(-1)
+    elif response.status_code != 200:
+         print(f"{colors.FAIL}Respone Error: {response.status_code}, {response.text}{colors.ENDC}")
+         continue
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
