@@ -132,7 +132,9 @@ on:
 # Trách nhiệm
 
 > [!WARNING]
->
+> Dự án này được bảo hộ dưới giấy phép [MIT License](https://mit-license.org/)
+> 
+> Thông tin chi tiết ,vui lòng xem [file LICENSE](/LICENSE)
 > - Script/Bot này **KHÔNG** có liên kết hay được xác nhận bởi Duolingo
 > - **Tôi** **không có trách nhiệm** cho bất kỳ hậu quả mà có thể phát sinh trong quá trình dùng Script/Bot này
 > - Script này sẽ không giúp bạn hoàn thành nhiệm vụ hằng ngày/nhiệm vụ bạn bè, nó chỉ giúp bạn nhận xp để lên rank trong Duolingo
