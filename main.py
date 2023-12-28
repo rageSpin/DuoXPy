@@ -223,6 +223,6 @@ for i in range(int(lessons)):
          print(f"{colors.FAIL}Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
          exit(-1)
     elif response.status_code != 200:
-         print(f"{colors.FAIL}Respone Error: {response.status_code}, {response.text}{colors.ENDC}")
+         print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
          continue
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
