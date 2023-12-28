@@ -130,7 +130,9 @@ on:
 # Disclaimer
 
 > [!WARNING]
+> This project is licensed under the [MIT License](https://mit-license.org/).
 >
+> For more information, see the [LICENSE file](./LICENSE).
 > - This script is **not** affiliated with Duolingo
 > - Use it at your **own risk** and responsibility  
 > - I'm **not responsible** for any consequences that may arise from using this script
