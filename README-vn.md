@@ -36,7 +36,7 @@
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
 
-### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️
+### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️, <a href="#cách-để-fix-error-500---no-skillid-found-in-xpgains">fix lỗi ở đây</a>   
 
 ### Thuộc chuỗi dự án Sandy
 
@@ -84,7 +84,7 @@ document.cookie
 > Nếu bạn nhận được lỗi `No skillId found in xpGains` thì hãy làm ít nhất là 
 1 bài học để có thể chạy lại bình thường nhé!
 
-<p align="left">
+<p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/get_token.png">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/GitSettings.png">
 </p>
@@ -93,6 +93,15 @@ document.cookie
 
 - Thông thường bạn có tìm thấy thư mục config ở cùng nơi mà file `main.py` ở. Nhưng 1 số trường hợp đặc biệc thì bạn cần phải tự tìm file config thông quan cửa sổ thông tin khi chạy của file `main.py`
 - Bạn có đổi thông tin token và số lượng bài học ở file config
+
+## Cách để fix `Error 500 - No SkillID found in xpGains`?
+
+- Không nên cho bậc học mới nhất của bạn trống ( level 0 ) mà hãy nâng lên level 1 như ở dưới bằng cách hoàn thành 1 bài học hoặc 1 vài bài học
+
+<p align="center">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/correct.png">
+</p>
 
 ## Làm thế nào để chỉnh lại thời gian tự động chạy mỗi ngày?
 
