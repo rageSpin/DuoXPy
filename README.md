@@ -88,6 +88,15 @@ document.cookie
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/GitSettings.png">
 </p>
 
+## How to fix `Error 500 - No SkillID found in xpGains`?
+
+- Do not let your latest study session empty, leasts get them to level 1 like these image below by complete 1 lesson or some lessons
+
+<p align="left">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
+  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/correct.png">
+</p>
+
 ## How to change the schedule that the workflows will run?
 
 > [!IMPORTANT]
