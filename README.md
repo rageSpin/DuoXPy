@@ -90,7 +90,7 @@ document.cookie
 
 ## How to fix `Error 500 - No SkillID found in xpGains`?
 
-- Do not let your latest study session empty, leasts get them to level 1 like these image below by complete 1 lesson or some lessons
+- Do not let your latest study session empty, at least get them to level 1 like these images below by completing 1 lesson or some lessons
 
 <p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
@@ -148,6 +148,14 @@ on:
 > - This script won't help with your daily or friend quests, it can only earn XP to move up the league rank
 > - This script won't do real lessons or stories, only practices, so it won't affect your learning path
 > - You may be **banned** from Duolingo if you overuse it, so use it wisely.
+
+## Recent activity [![Time period](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_timeline.svg)](https://github.com/gorouflex/DuoXPy/commits)
+[![Issue status graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_issues.svg)](https://github.com/gorouflex/DuoXPy/issues)
+[![Pull request status graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_prs.svg)](https://github.com/gorouflex/DuoXPy/pulls)
+[![Trending topics](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_words.svg)](https://github.com/gorouflex/DuoXPy/commits)
+[![Top contributors](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_users.svg)](https://github.com/gorouflex/DuoXPy/graphs/contributors)
+[![Activity map](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_map.svg)](https://github.com/gorouflex/DuoXPy/commits)
 
 ### Special thanks to 💖
 - [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) for the source code and idea

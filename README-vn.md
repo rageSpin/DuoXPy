@@ -150,6 +150,14 @@ on:
 > - Script này sẽ không làm những bài học/chuyện của bạn, chỉ làm phần luyện tập nên sẽ không ảnh hưởng đến tiến độ học của bạn
 > - Bạn có thể bị **ban** từ Duolingo nếu quá lạm dụng script, nên hãy sử dụng cẩn thận!
 
+## [![Repography logo](https://images.repography.com/logo.svg)](https://repography.com) / Recent activity [![Time period](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_timeline.svg)](https://github.com/gorouflex/DuoXPy/commits)
+[![Issue status graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_issues.svg)](https://github.com/gorouflex/DuoXPy/issues)
+[![Pull request status graph](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_prs.svg)](https://github.com/gorouflex/DuoXPy/pulls)
+[![Trending topics](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_words.svg)](https://github.com/gorouflex/DuoXPy/commits)
+[![Top contributors](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_users.svg)](https://github.com/gorouflex/DuoXPy/graphs/contributors)
+[![Activity map](https://images.repography.com/44739709/gorouflex/DuoXPy/recent-activity/WJ80z3pywpSIlPEOjRoSCvu-K9h5u0NtXJN_qAaLnRA/tero5srSFgivBt4WNpHw1eF_blCjOl895bVS_SEw2HU_map.svg)](https://github.com/gorouflex/DuoXPy/commits)
+
 ### Đặt biệt cảm ơn 💖
 - [rfoal](https://github.com/rfoel/) x [duolingo](https://github.com/rfoel/duolingo) cho mã nguồn mở ban đầu và ý tưởng
 - [ESSTX](https://github.com/ESSTX) cho các sửa lỗi liên quan đến xpGains [PR #1](https://github.com/gorouflex/DuoXPy/pull/1), [PR #2](https://github.com/gorouflex/DuoXPy/pull/2)
