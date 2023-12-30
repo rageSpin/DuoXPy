@@ -36,7 +36,7 @@
   <a href="#disclaimer">Disclaimer</a>
 </p>
 
-### ⚠️ This repository is still in its early stages and may not work as expected for some accounts, please try completing at least 9 lessons and run it again after 2-3 days ⚠️
+### ⚠️ This repository is still in its early stages and may not work as expected for some accounts, please try completing at least 9 lessons and run it again after 2-3 days ⚠️, <a href="https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains">fix here</a>     
 
 ### Belongs to the Sandy Project
 
@@ -83,7 +83,7 @@ document.cookie
 > 
 > If you got `No skillId found in xpGains` log then try to do least 1 lesson so it can run back to normal!
 
-<p align="left">
+<p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/get_token.png">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/GitSettings.png">
 </p>
@@ -92,7 +92,7 @@ document.cookie
 
 - Do not let your latest study session empty, leasts get them to level 1 like these image below by complete 1 lesson or some lessons
 
-<p align="left">
+<p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/correct.png">
 </p>
