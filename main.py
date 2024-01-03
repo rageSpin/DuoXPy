@@ -3,20 +3,9 @@ import requests
 import json
 import base64
 import time
+import shutil
 from configparser import ConfigParser
 from getpass import getpass
-
-class colors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    WHITE = '\033[97m'
 
 config_folder: str = 'Config'
 config_path: str = f'{config_folder}/DuoXPyConfig.txt'
@@ -24,12 +13,12 @@ config_path: str = f'{config_folder}/DuoXPyConfig.txt'
 config: ConfigParser = ConfigParser()
 config.read(config_path)
 
-print(f"{colors.WARNING}------- Welcome to DuoXPy -------{colors.ENDC}")
-print(f"{colors.OKBLUE}Made by GFx{colors.ENDC}")
+print("------- Welcome to DuoXPy -------")
+print("Made by GFx")
 if os.getenv('GITHUB_ACTIONS') == 'true':
-    print(f"{colors.OKBLUE}Powered by GitHub Actions V3 and Python{colors.ENDC}")
-    print(f"{colors.OKGREEN}Run with GitHub Actions: Yes{colors.ENDC}")
-    print(f"{colors.WHITE}Current repo: {os.getenv('GITHUB_REPOSITORY')}{colors.ENDC}")
+    print("Powered by GitHub Actions V3 and Python")
+    print("Run with GitHub Actions: Yes")
+    print(f"Current repo: {os.getenv('GITHUB_REPOSITORY')}")
     user_repo = os.getenv('GITHUB_REPOSITORY')
     ORIGINAL_REPO = 'gorouflex/DuoXPy'
     user_url = f'https://api.github.com/repos/{user_repo}/commits/main'
@@ -40,26 +29,28 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
         user_commit = user_response.json()['sha']
         original_commit = original_response.json()['sha']
         if user_commit == original_commit:
-            print(f"{colors.OKGREEN}Your repo is up-to-date with the original repo{colors.ENDC}")
+            print("Your repo is up-to-date with the original repo")
         else:
-            print(f"{colors.WARNING}Your repo is not up-to-date with the original repo{colors.ENDC}")
-            print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL}to get new updates and bug fixes{colors.ENDC}")
+            print("Your repo is not up-to-date with the original repo")
+            print("Please update your repo to the latest commit to get new updates and bug fixes")
     else:
-        print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
+        print("--------- Traceback log ---------\n❌ Error code 4: Failed to fetch commit information\n"
+              "Please refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md "
+              "for more information\nOr create an Issue on GitHub if it still doesn't work for you.")
         exit(-1)
-    print(f"{colors.WARNING}Lessons: {os.getenv('LESSONS')}{colors.ENDC}")
+    print(f"Lessons: {os.getenv('LESSONS')}")
 else:
-    print(f"{colors.FAIL}Run with GitHub Actions: No{colors.ENDC}")
+    print("Run with GitHub Actions: No")
     try:
-      lessons = config.get('User', 'LESSONS')
-      print(f"{colors.WARNING}Lessons: {lessons}{colors.ENDC}")
+        lessons = config.get('User', 'LESSONS')
+        print(f"Lessons: {lessons}")
     except:
-      print(f"{colors.WARNING}Lessons: N/A{colors.ENDC}")
-print(f"{colors.WHITE}Codename: Sandy{colors.ENDC}")
-print(f"{colors.WHITE}Config folder:", os.path.join(os.getcwd(), f"{colors.WHITE}Config{colors.ENDC}"))
-print(f"{colors.WARNING}---------------------------------{colors.ENDC}")
-print(f"{colors.WHITE}Starting DuoXPy{colors.ENDC}")
-print(f"{colors.WHITE}Collecting information...{colors.ENDC}")
+        print("Lessons: N/A")
+print("Codename: Sandy")
+print(f"Config folder: {os.path.join(os.getcwd(), 'Config')}")
+print("---------------------------------")
+print("Starting DuoXPy")
+print("Collecting information...")
 
 def create_config() -> None:
     config.add_section('User')
@@ -70,9 +61,9 @@ def create_config() -> None:
         lessons = os.getenv('LESSONS')
         config.set('User', 'LESSONS', f"{lessons}")
     else:
-        token = getpass(f"{colors.WHITE}Token: {colors.ENDC}")
+        token = getpass("Token: ")
         config.set('User', 'TOKEN', f"{token}")
-        lessons = getpass(f"{colors.WHITE}Lesson: {colors.ENDC}")
+        lessons = getpass("Lesson: ")
         config.set('User', 'LESSONS', f"{lessons}")
     with open(config_path, 'w', encoding='utf-8') as configfile:
         configfile.truncate(0)
@@ -81,21 +72,20 @@ def create_config() -> None:
 
 def check_config_integrity() -> None:
     if not os.path.exists(config_folder):
-        print(f"{colors.WARNING}Creating new config folder at:", os.path.join(os.getcwd()))
+        print("Creating new config folder at:", os.path.join(os.getcwd()))
         os.mkdir(config_folder)
-    
+
     if not os.path.isfile(config_path) or os.stat(config_path).st_size == 0:
         create_config()
         return
-    
+
     config.read(config_path)
-    
+
     if not config.has_section('User') or not config.has_option('User', 'TOKEN') or not config.has_option('User', 'LESSONS'):
         create_config()
 
 check_config_integrity()
 config.read(config_path)
-
 
 try:
     token = config.get('User', 'TOKEN')
@@ -110,11 +100,11 @@ headers = {
 }
 
 try:
-  jwt_token = token.split('.')[1]
+    jwt_token = token.split('.')[1]
 except:
-  print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invaild token{colors.ENDC}")
-  exit(-1)
-  
+    print("--------- Traceback log ---------\n❌ Invalid token")
+    exit(-1)
+
 padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
@@ -131,7 +121,7 @@ xpGain = xpGains[-1]
 skillId = xpGain['skillId']
 
 if skillId is None:
-    print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
+    print("No skillId found in xpGains\nPlease do at least 1 or 9 lessons")
     exit(1)
 
 for i in range(int(lessons)):
@@ -189,11 +179,11 @@ for i in range(int(lessons)):
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
-         print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
-         exit(-1)
+        print("Session Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons")
+        exit(-1)
     elif session_response.status_code != 200:
-         print(f"{colors.FAIL}Session Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
-         continue
+        print(f"Session Error: {session_response.status_code}, {session_response.text}")
+        continue
     session = session_response.json()
 
     end_response = requests.put(
@@ -214,15 +204,25 @@ for i in range(int(lessons)):
     try:
         end_data = end_response.json()
     except json.decoder.JSONDecodeError as e:
-        print(f"{colors.FAIL}Error decoding JSON: {e}{colors.ENDC}")
+        print(f"Error decoding JSON: {e}")
         print(f"Response content: {end_response.text}")
         continue
 
     response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
     if response.status_code == 500:
-         print(f"{colors.FAIL}Response Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
-         exit(-1)
+        print("Response Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons")
+        exit(-1)
     elif response.status_code != 200:
-         print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
-         continue
-    print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
+        print(f"Response Error: {response.status_code}, {response.text}")
+        continue
+    print(f"[{i+1}] - Gained: {end_data['xpGain']} XP (✓)")
+
+if os.getenv('GITHUB_ACTIONS') == 'true':
+    try:
+        shutil.rmtree(config_folder)
+        print("Cleaning up..")
+    except Exception as e:
+        print(f"Error deleting config folder: {e}")
+        exit(-1)
+
+print("Closing DuoXPy ✅")
