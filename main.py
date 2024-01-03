@@ -3,6 +3,7 @@ import requests
 import json
 import base64
 import time
+import shutil
 from configparser import ConfigParser
 from getpass import getpass
 
@@ -51,10 +52,10 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
 else:
     print(f"{colors.FAIL}Run with GitHub Actions: No{colors.ENDC}")
     try:
-      lessons = config.get('User', 'LESSONS')
-      print(f"{colors.WARNING}Lessons: {lessons}{colors.ENDC}")
+        lessons = config.get('User', 'LESSONS')
+        print(f"{colors.WARNING}Lessons: {lessons}{colors.ENDC}")
     except:
-      print(f"{colors.WARNING}Lessons: N/A{colors.ENDC}")
+        print(f"{colors.WARNING}Lessons: N/A{colors.ENDC}")
 print(f"{colors.WHITE}Codename: Sandy{colors.ENDC}")
 print(f"{colors.WHITE}Config folder:", os.path.join(os.getcwd(), f"{colors.WHITE}Config{colors.ENDC}"))
 print(f"{colors.WARNING}---------------------------------{colors.ENDC}")
@@ -110,10 +111,10 @@ headers = {
 }
 
 try:
-  jwt_token = token.split('.')[1]
+    jwt_token = token.split('.')[1]
 except:
-  print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invaild token{colors.ENDC}")
-  exit(-1)
+    print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invalid token{colors.ENDC}")
+    exit(-1)
   
 padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
@@ -226,3 +227,13 @@ for i in range(int(lessons)):
          print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
          continue
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
+
+if os.getenv('GITHUB_ACTIONS') == 'true':
+    try:
+      shutil.rmtree(config_folder)
+      print(f"{colors.WARNING}Cleaning up..{colors.ENDC}")
+    except Exception as e:
+      print(f"{colors.FAIL}Error deleting config folder: {e}{colors.ENDC}")
+      exit(-1)
+
+print("Closing DuoXPy ✅")
