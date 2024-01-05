@@ -33,13 +33,13 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
     print(f"{colors.WHITE}Current repo: {os.getenv('GITHUB_REPOSITORY')}{colors.ENDC}")
     user_repo = os.getenv('GITHUB_REPOSITORY')
     ORIGINAL_REPO = 'gorouflex/DuoXPy'
-    user_url = f'https://api.github.com/repos/{user_repo}/commits/main'
-    original_url = f'https://api.github.com/repos/{ORIGINAL_REPO}/commits/main'
+    user_url = f'https://api.github.com/repos/{user_repo}/commits?path=main.py'
+    original_url = f'https://api.github.com/repos/{ORIGINAL_REPO}/commits?path=main.py'
     user_response = requests.get(user_url, timeout=10000)
     original_response = requests.get(original_url, timeout=10000)
     if user_response.status_code == 200 and original_response.status_code == 200:
-        user_commit = user_response.json()['sha']
-        original_commit = original_response.json()['sha']
+        user_commit = user_response.json()[0]['sha']
+        original_commit = original_response.json()[0]['sha']
         if user_commit == original_commit:
             print(f"{colors.OKGREEN}Your repo is up-to-date with the original repo{colors.ENDC}")
         else:
