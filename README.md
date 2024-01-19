@@ -1,6 +1,6 @@
 <picture><img align="left" src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="20%"/></picture>
 <h1>DuoXPy - Project Sandy</h1>
-<h3>⚡️ XP farm and Streak keeper for Duolingo</h3>
+<h4>⚡️ XP farm and Streak keeper for Duolingo</h3>
 <h5>Powered by GitHub Actions 🐙 and Python 🐍</h5>
 <h5>Forked of <a href="https://github.com/rfoel/duolingo">duolingo</a></h5>
 
