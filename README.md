@@ -1,9 +1,27 @@
+<picture><img align="left" src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="20%"/></picture>
+<h1>DuoXPy - Project Sandy</h1>
+<h3>⚡️ XP farm and Streak keeper for Duolingo</h3>
+<h5>Powered by GitHub Actions 🐙 and Python 🐍</h5>
+<h5>Forked of <a href="https://github.com/rfoel/duolingo">duolingo</a></h5>
+
+#
+
 <p align="center">
-  <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="128px"/>            
+  <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
+  •
+  <a href="README-vn.md">Tiếng Việt 🇻🇳</a>
 </p>
-<h1 align="center">DuoXPy - Project Sandy</h1>
-<h4 align="center">⚡️ XP farm and Streak keeper for Duolingo 🔥</h4>
-<h4 align="center">Powered by GitHub Actions 🐙 and Python 🐍</h4>
+<p align="center">
+  <a href="#feature">Feature</a>
+  •
+  <a href="#usage">Usage</a>     
+  •
+  <a href="#config">Config</a>     
+  •
+  <a href="#preview">Preview</a>
+  •
+  <a href="#disclaimer">Disclaimer</a>
+</p>
 <p align="center">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/gorouflex/DuoXPy?style=flat">
   <img src="https://img.shields.io/github/forks/gorouflex/DuoXPy?style=flat">
@@ -19,21 +37,6 @@
 <p align="center">
   <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml/badge.svg"></a>
   <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
-</p>
-<p align="center">
-  <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
-  •
-  <a href="README-vn.md">Tiếng Việt 🇻🇳</a>
-<p align="center">
-  <a href="#feature">Feature</a>
-  •
-  <a href="#usage">Usage</a>     
-  •
-  <a href="#config">Config</a>     
-  •
-  <a href="#preview">Preview</a>
-  •
-  <a href="#disclaimer">Disclaimer</a>
 </p>
 
 ### ⚠️ This repository is still in its early stages and may not work as expected for some accounts, please try completing at least 9 lessons and run it again after 2-3 days ⚠️, <a href="#how-to-fix-error-500---no-skillid-found-in-xpgains">fix here</a>     
