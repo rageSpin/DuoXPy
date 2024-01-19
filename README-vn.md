@@ -1,25 +1,10 @@
-<p align="center">
-<img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="128px"/>            
-</p>
-<h1 align="center">DuoXPy - Dự án Sandy</h1>
-<h4 align="center"> ⚡️ Farm XP và giữ Streak cho Duolingo🔥</h4>
-<h4 align="center">Dưới sự hỗ trợ của GitHub Actions 🐙 và Python 🐍</h4>
-<p align="center">
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/gorouflex/DuoXPy?style=flat">
-<img src="https://img.shields.io/github/forks/gorouflex/DuoXPy?style=flat">
-<p align="center">
-<img src="https://img.shields.io/github/stars/gorouflex/DuoXPy?style=flat">
-<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/gorouflex/DuoXPy?style=flat">
-<img src="https://img.shields.io/github/contributors/gorouflex/DuoXPy?style=flat">
-</p>
-<p align="center">
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml/badge.svg"></a>
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml/badge.svg"></a>
-</p>
-<p align="center">
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml/badge.svg"></a>
-<a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
-</p>
+<picture><img align="left" src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/duo.svg" width="20%"/></picture>
+<h1>DuoXPy - Dự án Sandy</h1>
+<h3> ⚡️ Farm XP và giữ Streak cho Duolingo🔥</h3>
+<h4>Dưới sự hỗ trợ của GitHub Actions 🐙 và Python 🐍</h5>
+
+#
+
 <p align="center">
   <a href="https://github.com/gorouflex/DuoXPy/">English 🇺🇸</a>
   •
@@ -35,8 +20,24 @@
   •
   <a href="#trách-nhiệm">Trách nhiệm</a>  
 </p>
+<p align="center">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/gorouflex/DuoXPy?style=flat">
+  <img src="https://img.shields.io/github/forks/gorouflex/DuoXPy?style=flat">
+<p align="center">
+  <img src="https://img.shields.io/github/stars/gorouflex/DuoXPy?style=flat">
+  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/gorouflex/DuoXPy?style=flat">
+  <img src="https://img.shields.io/github/contributors/gorouflex/DuoXPy?style=flat">
+</p>
+<p align="center">
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/codeql.yml/badge.svg"></a>
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/cl.yml/badge.svg"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/daily.yml/badge.svg"></a>
+  <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
+</p>
 
-### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️, <a href="#cách-để-fix-error-500---no-skillid-found-in-xpgains">fix lỗi ở đây</a>   
+### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️, <a href="https://github.com/gorouflex/DuoXPy/blob/main/README-vn.md#cách-để-fix-error-500---no-skillid-found-in-xpgains">fix lỗi ở đây</a>   
 
 ### Thuộc chuỗi dự án Sandy
 
