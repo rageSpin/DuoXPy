@@ -37,6 +37,8 @@
   <a href="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml"><img src="https://github.com/gorouflex/DuoXPy/actions/workflows/manual.yml/badge.svg"></a> (*)
 </p>
 
+#
+
 ### ⚠️ Dự án này vẫn đang ở giai đoạn đầu và có thể không hoạt động như mong đợi đối với một số tài khoản, hãy thử hoàn thành ít nhất 9 bài học và chạy lại sau 2-3 ngày ⚠️, <a href="https://github.com/gorouflex/DuoXPy/blob/main/README-vn.md#cách-để-fix-error-500---no-skillid-found-in-xpgains">fix lỗi ở đây</a>   
 
 ### Thuộc chuỗi dự án Sandy
