@@ -11,6 +11,8 @@ headers = {
 }
 
 jwt_payload = os.environ['JWT_TOKEN'].split('.')[1]
+padding = 4 - len(jwt_payload) % 4
+jwt_payload += '=' * padding
 decoded_jwt = base64.b64decode(jwt_payload).decode('utf-8')
 jwt_data = json.loads(decoded_jwt)
 sub = jwt_data['sub']
