@@ -62,6 +62,7 @@ print(f"{colors.WARNING}---------------------------------{colors.ENDC}")
 print(f"{colors.WHITE}Starting DuoXPy{colors.ENDC}")
 print(f"{colors.WHITE}Collecting information...{colors.ENDC}")
 
+
 def create_config() -> None:
     config.add_section('User')
     config.set('User', 'TOKEN', "")
@@ -80,6 +81,7 @@ def create_config() -> None:
         configfile.seek(0)
         config.write(configfile)
 
+
 def check_config_integrity() -> None:
     if not os.path.exists(config_folder):
         print(f"{colors.WARNING}Creating new config folder at:", os.path.join(os.getcwd()))
@@ -93,7 +95,6 @@ def check_config_integrity() -> None:
     
     if not config.has_section('User') or not config.has_option('User', 'TOKEN') or not config.has_option('User', 'LESSONS'):
         create_config()
-
 
 check_config_integrity()
 config.read(config_path)
@@ -123,6 +124,7 @@ fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
 
+# Check skillId, i fucked this thing
 xpGain = xpGains[-1]
 skillId = xpGain['skillId']
 
@@ -185,13 +187,12 @@ for i in range(int(lessons)):
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
-         print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
+         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
          exit(-1)
     elif session_response.status_code != 200:
-         print(f"{colors.FAIL}Session Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
+         print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
          continue
     session = session_response.json()
-
 
     session['heartsLeft'] = 0
     session['startTime'] = (int(time.time()) - 60) / 1000
@@ -204,7 +205,6 @@ for i in range(int(lessons)):
     response = requests.put(f"https://www.duolingo.com/2017-06-30/sessions/{session['id']}", json=session, headers=headers)
     response_data = response.json()
 
-    print({'xp': response_data['xpGain']})
     print(f"{colors.OKGREEN}[{i+1}] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
 
 if os.getenv('GITHUB_ACTIONS') == 'true':
