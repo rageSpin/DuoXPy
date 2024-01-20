@@ -1,8 +1,8 @@
+import os
 import requests
 import json
 import base64
 import time
-import os
 import shutil
 from configparser import ConfigParser
 from getpass import getpass
@@ -62,7 +62,6 @@ print(f"{colors.WARNING}---------------------------------{colors.ENDC}")
 print(f"{colors.WHITE}Starting DuoXPy{colors.ENDC}")
 print(f"{colors.WHITE}Collecting information...{colors.ENDC}")
 
-
 def create_config() -> None:
     config.add_section('User')
     config.set('User', 'TOKEN', "")
@@ -81,7 +80,6 @@ def create_config() -> None:
         configfile.seek(0)
         config.write(configfile)
 
-
 def check_config_integrity() -> None:
     if not os.path.exists(config_folder):
         print(f"{colors.WARNING}Creating new config folder at:", os.path.join(os.getcwd()))
@@ -99,39 +97,44 @@ def check_config_integrity() -> None:
 check_config_integrity()
 config.read(config_path)
 
+
 try:
     token = config.get('User', 'TOKEN')
     lessons = config.get('User', 'LESSONS')
 except:
     create_config()
-    
+
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f"Bearer {token}",
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    'Authorization': 'Bearer ' + token,
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
 }
 
-jwt_payload = token.split('.')[1]
-padding = 4 - len(jwt_payload) % 4
-jwt_payload += '=' * padding
-decoded_jwt = base64.b64decode(jwt_payload).decode('utf-8')
-jwt_data = json.loads(decoded_jwt)
-sub = jwt_data['sub']
+try:
+    jwt_token = token.split('.')[1]
+except:
+    print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invalid token{colors.ENDC}")
+    exit(-1)
+  
+padding = '=' * (4 - len(jwt_token) % 4)
+sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
-response = requests.get(f"https://www.duolingo.com/2017-06-30/users/{sub}?fields=fromLanguage,learningLanguage,xpGains", headers=headers)
+response = requests.get(
+    f"https://www.duolingo.com/2017-06-30/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
+    headers=headers,
+)
 data = response.json()
 fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
 
-# Check skillId, i fucked this thing
 xpGain = xpGains[-1]
 skillId = xpGain['skillId']
 
 if skillId is None:
     print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
     exit(1)
-    
+
 for i in range(int(lessons)):
     session_data = {
         'challengeTypes': [
@@ -182,34 +185,48 @@ for i in range(int(lessons)):
         'learningLanguage': learningLanguage,
         'skillId': skillId,
         'smartTipsVersion': 2,
-        'type': 'SPEAKING_PRACTICE'
+        'type': 'SPEAKING_PRACTICE',
     }
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
-         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains{colors.ENDC}")
-    elif session_response.status_code != 200:
-         print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
+         print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains{colors.ENDC}")
          continue
+    elif session_response.status_code != 200:
+         print(f"{colors.FAIL}Session Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
+         continue
+    session = session_response.json()
+
+    end_response = requests.put(
+        f"https://www.duolingo.com/2017-06-30/sessions/{session['id']}",
+        headers=headers,
+        json={
+            **session,
+            'heartsLeft': 0,
+            'startTime': (time.time() - 60),
+            'enableBonusPoints': False,
+            'endTime': time.time(),
+            'failed': False,
+            'maxInLessonStreak': 9,
+            'shouldLearnThings': True,
+        },
+    )
+
     try:
-      session = session_response.json()
+        end_data = end_response.json()
     except json.decoder.JSONDecodeError as e:
-      print(f"{colors.FAIL}JSON Decode Error: {e}{colors.ENDC}")
-      continue
+        print(f"{colors.FAIL}Error decoding JSON: {e}{colors.ENDC}")
+        print(f"Response content: {end_response.text}")
+        continue
 
-
-    session['heartsLeft'] = 0
-    session['startTime'] = (int(time.time()) - 60) / 1000
-    session['enableBonusPoints'] = False
-    session['endTime'] = int(time.time()) / 1000
-    session['failed'] = False
-    session['maxInLessonStreak'] = 9
-    session['shouldLearnThings'] = True
-
-    response = requests.put(f"https://www.duolingo.com/2017-06-30/sessions/{session['id']}", json=session, headers=headers)
-    response_data = response.json()
-
-    print(f"{colors.OKGREEN}[{i+1}] - Gained: {response_data['xpGain']} XP (✓){colors.ENDC}")
+    response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
+    if response.status_code == 500:
+         print(f"{colors.FAIL}Response Error 500 - No skillId found in xpGains{colors.ENDC}")
+         continue
+    elif response.status_code != 200:
+         print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
+         continue
+    print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
 
 if os.getenv('GITHUB_ACTIONS') == 'true':
     try:
