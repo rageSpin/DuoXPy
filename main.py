@@ -180,7 +180,7 @@ for i in range(int(lessons)):
         'isV2': True,
         'juicy': True,
         'learningLanguage': learningLanguage,
-        'skillId': next((xpGain['skillId'] for xpGain in xpGains if 'skillId' in xpGain), None),
+        'skillId': skillId,
         'smartTipsVersion': 2,
         'type': 'SPEAKING_PRACTICE'
     }
