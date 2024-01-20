@@ -191,7 +191,12 @@ for i in range(int(lessons)):
     elif session_response.status_code != 200:
          print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
          continue
-    session = session_response.json()
+    try:
+      session = session_response.json()
+    except json.decoder.JSONDecodeError as e:
+      print(f"{colors.FAIL}JSON Decode Error: {e}{colors.ENDC}")
+      continue
+
 
     session['heartsLeft'] = 0
     session['startTime'] = (int(time.time()) - 60) / 1000
