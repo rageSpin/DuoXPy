@@ -77,7 +77,11 @@ for i in range(int(os.environ['LESSONS'])):
     }
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
-    session = session_response.json()
+    if session_response.status_code == 200:
+       session = session_response.json()
+    else:
+       print(f"Error: {session_response.status_code}")
+
 
     session['heartsLeft'] = 0
     session['startTime'] = (int(time.time()) - 60) / 1000
