@@ -187,8 +187,7 @@ for i in range(int(lessons)):
 
     session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
-         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
-         exit(-1)
+         print(f"{colors.FAIL}Error 500 - No skillId found in xpGains{colors.ENDC}")
     elif session_response.status_code != 200:
          print(f"{colors.FAIL}Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
          continue
