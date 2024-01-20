@@ -127,7 +127,9 @@ data = response.json()
 fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
+
 xpGain = xpGains[-1]
+skillId = xpGain['skillId']
 
 if skillId is None:
     print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
@@ -181,7 +183,7 @@ for i in range(int(lessons)):
         'isV2': True,
         'juicy': True,
         'learningLanguage': learningLanguage,
-        'skillId': skillId = next(xpGain['skillId'] for xpGain in xpGains if xpGain['skillId']),
+        'skillId': skillId,
         'smartTipsVersion': 2,
         'type': 'SPEAKING_PRACTICE',
     }
