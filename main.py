@@ -2,6 +2,7 @@ import requests
 import json
 import base64
 import time
+import os
 
 headers = {
     'Content-Type': 'application/json',
