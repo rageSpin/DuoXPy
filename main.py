@@ -128,7 +128,12 @@ response = requests.get(
 data = response.json()
 fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
-xpGains = data['xpGains']
+try:
+  xpGains = data['xpGains']
+except:
+# Bruh 
+  print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
+  exit(-1)
 
 # Check skillID (Legacy method), i'm fucked up with this shit
 skillId = None
