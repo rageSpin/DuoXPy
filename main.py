@@ -191,7 +191,7 @@ for i in range(int(lessons)):
         'type': 'SPEAKING_PRACTICE',
     }
 
-    session_response = requests.post('https://www.duolingo.com/{date}/sessions', json=session_data, headers=headers)
+    session_response = requests.post(f'https://www.duolingo.com/{date}/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
          print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains{colors.ENDC}")
          continue
