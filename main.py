@@ -121,7 +121,7 @@ padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
 date = datetime.now().strftime('%Y-%m-%d')
-
+print("Date:", date)
 response = requests.get(
     f"https://www.duolingo.com/{date}/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
     headers=headers,
