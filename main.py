@@ -48,7 +48,6 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
             print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL}to get new updates and bug fixes{colors.ENDC}")
     else:
         print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
-        exit(-1)
     print(f"{colors.WARNING}Lessons: {os.getenv('LESSONS')}{colors.ENDC}")
 else:
     print(f"{colors.FAIL}Run with GitHub Actions: No{colors.ENDC}")
@@ -121,7 +120,7 @@ padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
 date = datetime.now().strftime('%Y-%m-%d')
-print("Date:", date)
+print(f"{colors.WARNING}Date: {date}{colors.ENDC}")
 response = requests.get(
     f"https://www.duolingo.com/{date}/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
     headers=headers,
@@ -131,7 +130,7 @@ fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 xpGains = data['xpGains']
 
-
+# Check skillID (Legacy method), i'm fucked up with this shit
 skillId = None
 for xpGain in xpGains:
     if 'skillId' in xpGain:
@@ -139,9 +138,9 @@ for xpGain in xpGains:
         break
 
 if skillId is None:
-    print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or 9 lessons{colors.ENDC}")
+    print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
     exit(1)
-
+    
 for i in range(int(lessons)):
     session_data = {
         'challengeTypes': [
@@ -197,7 +196,7 @@ for i in range(int(lessons)):
 
     session_response = requests.post(f'https://www.duolingo.com/{date}/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
-         print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains{colors.ENDC}")
+         print(f"{colors.FAIL}Session Error 500 / No skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
          continue
     elif session_response.status_code != 200:
          print(f"{colors.FAIL}Session Error: {session_response.status_code}, {session_response.text}{colors.ENDC}")
@@ -228,12 +227,12 @@ for i in range(int(lessons)):
 
     response = requests.put(f'https://www.duolingo.com/{date}/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
     if response.status_code == 500:
-         print(f"{colors.FAIL}Response Error 500 - No skillId found in xpGains{colors.ENDC}")
+         print(f"{colors.FAIL}Response Error 500 / No skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
          continue
     elif response.status_code != 200:
          print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
          continue
-    print(f"{colors.OKGREEN}[{i+1}] - Gained: {end_data['xpGain']} XP (✓){colors.ENDC}")
+    print(f"{colors.OKGREEN}[{i+1}] - Gained {end_data['xpGain']} XP{colors.ENDC}")
 
 if os.getenv('GITHUB_ACTIONS') == 'true':
     try:
