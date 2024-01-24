@@ -45,7 +45,7 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
             print(f"{colors.OKGREEN}Your repo is up-to-date with the original repo{colors.ENDC}")
         else:
             print(f"{colors.WARNING}Your repo is not up-to-date with the original repo{colors.ENDC}")
-            print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL}to get new updates and bug fixes{colors.ENDC}")
+            print(f"{colors.FAIL}Please update your repo to the latest commit{colors.ENDC}{colors.FAIL} to get new updates and bug fixes{colors.ENDC}")
     else:
         print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Error code 4: Failed to fetch commit information\nPlease refer to: https://github.com/gorouflex/HoneygainPot/blob/main/Docs/Debug.md for more information\nOr create an Issue on GitHub if it still doesn't work for you.{colors.ENDC}")
     print(f"{colors.WARNING}Lessons: {os.getenv('LESSONS')}{colors.ENDC}")
@@ -131,19 +131,19 @@ learningLanguage = data['learningLanguage']
 try:
   xpGains = data['xpGains']
 except:
-# Bruh 
+# Bruh
   print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
   exit(-1)
 
-# Check skillID (Legacy method), i'm fucked up with this shit
+# Check skillID (Old method), scan the whole xpGains array ( apart from ESSTX )
 skillId = None
-for xpGain in xpGains:
+for xpGain in reversed(xpGains):
     if 'skillId' in xpGain:
         skillId = xpGain['skillId']
         break
 
 if skillId is None:
-    print(f"{colors.FAIL}No skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
+    print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
     exit(1)
     
 for i in range(int(lessons)):
