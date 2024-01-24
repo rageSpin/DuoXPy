@@ -232,7 +232,7 @@ for i in range(int(lessons)):
     elif response.status_code != 200:
          print(f"{colors.FAIL}Response Error: {response.status_code}, {response.text}{colors.ENDC}")
          continue
-    print(f"{colors.OKGREEN}[{i+1}] - Gained {end_data['xpGain']} XP{colors.ENDC}")
+    print(f"{colors.OKGREEN}[{i+1}] - {end_data['xpGain']} XP{colors.ENDC}")
 
 if os.getenv('GITHUB_ACTIONS') == 'true':
     try:
