@@ -6,6 +6,7 @@ import time
 import shutil
 from configparser import ConfigParser
 from getpass import getpass
+from datetime import datetime
 
 class colors:
     HEADER = '\033[95m'
@@ -119,8 +120,10 @@ except:
 padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
+date = datetime.now().strftime('%Y-%m-%d')
+
 response = requests.get(
-    f"https://www.duolingo.com/2017-06-30/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
+    f"https://www.duolingo.com/{date}/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
     headers=headers,
 )
 data = response.json()
@@ -188,7 +191,7 @@ for i in range(int(lessons)):
         'type': 'SPEAKING_PRACTICE',
     }
 
-    session_response = requests.post('https://www.duolingo.com/2017-06-30/sessions', json=session_data, headers=headers)
+    session_response = requests.post('https://www.duolingo.com/{date}/sessions', json=session_data, headers=headers)
     if session_response.status_code == 500:
          print(f"{colors.FAIL}Session Error 500 - No skillId found in xpGains{colors.ENDC}")
          continue
@@ -198,7 +201,7 @@ for i in range(int(lessons)):
     session = session_response.json()
 
     end_response = requests.put(
-        f"https://www.duolingo.com/2017-06-30/sessions/{session['id']}",
+        f"https://www.duolingo.com/{date}/sessions/{session['id']}",
         headers=headers,
         json={
             **session,
@@ -219,7 +222,7 @@ for i in range(int(lessons)):
         print(f"Response content: {end_response.text}")
         continue
 
-    response = requests.put(f'https://www.duolingo.com/2017-06-30/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
+    response = requests.put(f'https://www.duolingo.com/{date}/sessions/{session["id"]}', data=json.dumps(end_data), headers=headers)
     if response.status_code == 500:
          print(f"{colors.FAIL}Response Error 500 - No skillId found in xpGains{colors.ENDC}")
          continue
