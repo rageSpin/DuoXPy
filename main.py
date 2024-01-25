@@ -160,14 +160,13 @@ for xpGain in reversed(xpGains):
         skillId = xpGain['skillId']
         break
 
-if skillId is None:
-    print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
-    exit(1)
-
-print("Debug:")
 print(f"From Language: {fromLanguage}")
 print(f"Learning Language: {learningLanguage}")
 print(f"Skill ID: {skillId}")
+
+if skillId is None:
+    print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
+    exit(1)
 
 # Do a loop and start make request to gain xp
 for i in range(int(lessons)):
