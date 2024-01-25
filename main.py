@@ -147,11 +147,11 @@ data = response.json()
 fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 try:
-  xpGains = data['xpGains']
+    xpGains = data['xpGains']
+    skillId = xpGains[0]['skillId']
 except:
-# Bruh
-  print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
-  exit(-1)
+    print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
+    exit(-1)
 
 # Check skillID (Old method), scan the whole xpGains array ( apart from ESSTX )
 skillId = None
@@ -162,7 +162,6 @@ for xpGain in reversed(xpGains):
 
 print(f"From Language: {fromLanguage}")
 print(f"Learning Language: {learningLanguage}")
-print(f"Skill ID: {skillId}")
 
 if skillId is None:
     print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
