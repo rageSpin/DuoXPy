@@ -142,25 +142,30 @@ response = requests.get(
     f"https://www.duolingo.com/{date}/users/{sub['sub']}?fields=fromLanguage,learningLanguage,xpGains",
     headers=headers,
 )
-
 data = response.json()
 # Take element required to make a request
 fromLanguage = data['fromLanguage']
 learningLanguage = data['learningLanguage']
 try:
-    skillId = data['languageData'][learningLanguage]['languageSkills'][0]['id']
+    xpGains = data['xpGains']
+    skillId = xpGains[0]['skillId']
 except:
     print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
     exit(-1)
 
+# Check skillID (Old method), scan the whole xpGains array ( apart from ESSTX )
+skillId = None
+for xpGain in reversed(xpGains):
+    if 'skillId' in xpGain:
+        skillId = xpGain['skillId']
+        break
+
 print(f"From Language: {fromLanguage}")
 print(f"Learning Language: {learningLanguage}")
-print(f"Skill ID: {skillId}")
 
 if skillId is None:
-    print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
+    print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
     exit(1)
-
 
 # Do a loop and start make request to gain xp
 for i in range(int(lessons)):
