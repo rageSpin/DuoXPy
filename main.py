@@ -160,8 +160,8 @@ for xpGain in reversed(xpGains):
         skillId = xpGain['skillId']
         break
 
-print(f"From Language: {fromLanguage}")
-print(f"Learning Language: {learningLanguage}")
+print(f"From (Language): {fromLanguage}")
+print(f"Learning (Language): {learningLanguage}")
 
 if skillId is None:
     print(f"{colors.FAIL}{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\nNo skillId found in xpGains\nPlease do at least 1 or some lessons in your skill tree\nVisit https://github.com/gorouflex/DuoXPy#how-to-fix-error-500---no-skillid-found-in-xpgains for more information{colors.ENDC}")
