@@ -81,12 +81,11 @@ def create_config() -> None:
         token = os.getenv('JWT_TOKEN')
         config.set('User', 'TOKEN', f"{token}")
         lessons = os.getenv('LESSONS')
-        config.set('User', 'LESSONS', f"{lessons}")
     else:
         token = getpass(f"{colors.WHITE}Token: {colors.ENDC}")
         config.set('User', 'TOKEN', f"{token}")
         lessons = getpass(f"{colors.WHITE}Lesson: {colors.ENDC}")
-        config.set('User', 'LESSONS', f"{lessons}")
+    config.set('User', 'LESSONS', f"{lessons}")
     with open(config_path, 'w', encoding='utf-8') as configfile:
         configfile.truncate(0)
         configfile.seek(0)
@@ -121,7 +120,7 @@ except:
 # Configure headers for futher request
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + token,
+    'Authorization': f'Bearer {token}',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
 }
 
@@ -131,7 +130,7 @@ try:
 except:
     print(f"{colors.WARNING}--------- Traceback log ---------{colors.ENDC}\n{colors.FAIL}❌ Invalid token{colors.ENDC}")
     exit(-1)
-  
+
 padding = '=' * (4 - len(jwt_token) % 4)
 sub = json.loads(base64.b64decode(jwt_token + padding).decode())
 
@@ -153,13 +152,10 @@ except:
     print(f"{colors.FAIL}Your Duolingo account has been banned or does not exist{colors.ENDC}")
     exit(-1)
 
-# Check skillID (Old method), scan the whole xpGains array ( apart from ESSTX )
-skillId = None
-for xpGain in reversed(xpGains):
-    if 'skillId' in xpGain:
-        skillId = xpGain['skillId']
-        break
-
+skillId = next(
+    (xpGain['skillId'] for xpGain in reversed(xpGains) if 'skillId' in xpGain),
+    None,
+)
 print(f"From (Language): {fromLanguage}")
 print(f"Learning (Language): {learningLanguage}")
 
