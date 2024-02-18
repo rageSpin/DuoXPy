@@ -94,7 +94,7 @@ document.cookie
 
 ## How to fix `Error 500 - No SkillID found in xpGains`?
 
-- Do not let your latest study session empty, at least get them to level 1 like these images below by completing 1 lesson or some lessons
+- Do not let your latest study session empty, at least get them to level 1 like these images below by completing 1 lesson or some lessons ( applied for every single course like English, Spanish, Japanese, etc... )
 
 <p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
