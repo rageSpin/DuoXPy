@@ -99,7 +99,7 @@ document.cookie
 
 ## Cách để fix `Error 500 - No SkillID found in xpGains`?
 
-- Không nên cho bậc học mới nhất của bạn trống ( level 0 ) mà hãy nâng lên level 1 như ở dưới bằng cách hoàn thành 1 bài học hoặc 1 vài bài học
+- Không nên cho bậc học mới nhất của bạn trống ( level 0 ) mà hãy nâng lên level 1 như ở dưới bằng cách hoàn thành 1 bài học hoặc 1 vài bài học (áp dụng cho từng khóa học như tiếng Anh, tiếng Tây Ban Nha, tiếng Nhật, v.v...)
 
 <p align="center">
   <img src="https://github.com/gorouflex/Sandy/blob/main/Img/DuoXPy/wrong.png">
