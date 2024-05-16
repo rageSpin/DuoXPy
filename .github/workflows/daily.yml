@@ -1,7 +1,9 @@
 name: Daily lessons
 on:
   schedule:
-    - cron: '0 14 * * *' # <- Use UTC Time +0 , change your time here ( 14 is hour , 0 is minutes ) and use 24-hour format
+    - cron: '0 9 * * *' # <- Use UTC Time +0 , change your time here ( 9 is hour , 0 is minutes ) and use 24-hour format
+    - cron: '0 14 * * *'
+    - cron: '0 20 * * *'
 
    
 jobs:
